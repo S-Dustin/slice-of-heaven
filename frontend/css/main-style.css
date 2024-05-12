@@ -1,0 +1,53 @@
+
+/* Customize your styles here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    /* Add more styles as needed */
+}
+
+/* Example styles for the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(245, 240, 190);
+    color: #fff;
+}
+
+.logo {
+	font-family: Times New Roman, sans-serif;
+	color: Red;
+    	font-size: 50px;
+    	font-weight: bold;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.About {
+	font-family: Times New Roman, sans-serif;
+	color: Maroon;
+    	font-size: 50px;
+    	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+
+.Contact {
+	font-family: Times New Roman, sans-serif;
+	color: Gold;
+    	font-size: 50px;
+    	font-weight: bold;
+	text-align: center;
+}
+
+.Location .Address .Map {
+	display:table-cell;
+}
+
+/* Add more styles for other sections (menu, about, contact) */
+/* Use responsive design for different screen sizes */
