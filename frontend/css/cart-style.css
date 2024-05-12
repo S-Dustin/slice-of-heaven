@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    background-image: url(../images/cart-backer.png);
+    background-size: cover; /* Adjusts the background image size to cover the entire webpage */
+    background-position: center; /* Centers the background image */
+    height: 100vh;
+}
+
+h3 {
+    margin: 40px;
+    color: #fcfafa;
+    font-size: 50px;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.795);
+    font-family: monospace;
+    text-indent: 30%;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    background-color: #4d0000;
+    width: 500px;
+    left: 30%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.568);
+    margin-bottom: 10px;
+    opacity: .8;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    color: #fcfafa;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#cart-total {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#total-price {
+    font-weight: bold;
+}
+
+#checkout-btn {
+    height: 50px;
+    width: 200px;
+    border: none;
+    outline: none;
+    background: #018800;
+    color: #000000;
+    font-size: 25px;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

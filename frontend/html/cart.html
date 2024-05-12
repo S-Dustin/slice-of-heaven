@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('#header').load('header.html');
+        });
+    </script>
+    <title>Cart</title>
+    <link rel="stylesheet" href="../css/cart-style.css">
+</head>
+<body>
+    <header id="header">
+        <!-- Header content will be loaded here -->
+    </header>
+    <div class="cart-head">
+        <h3>Your Cart</h3>
+    </div>
+    <div id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    <div id="cart-total">
+        <p>Total: <span id="total-price">$0.00</span></p>
+        <button id="checkout-btn">Checkout</button>
+    </div>
+    <script src="../js/cart-script.js"></script>
+</body>
+</html>

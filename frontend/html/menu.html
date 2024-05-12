@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Dustin Sauter">
+    <meta name="description" content="This page contains the menu for Slice of Heaven.">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('#header').load('header.html');
+        });
+    </script>
+    <title>Menu</title>
+    <link rel="stylesheet" href="../css/menu-style.css">
+</head>
+<body>
+    <header id="header">
+        <!-- Header content will be loaded here -->
+    </header>
+    <h3>Menu</h3>
+    <div class="menu-items">
+        <% menuItems.forEach(item => { %>
+            <div class="menu-item">
+                <h4><%= item.name %></h2>
+                <p><strong>Price:</strong> $<%= item.price %></p>
+                <p><strong>Description:</strong> <%= item.description %></p>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
