@@ -15,13 +15,26 @@ body {
     height: 100vh;
 }
 
+.cart-head {
+    height: 80px;
+    width: 50%;
+    justify-content: center;
+}
+
 h3 {
-    margin: 40px;
     color: #fcfafa;
     font-size: 50px;
-    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.795);
+    padding-top: 10px;
     font-family: monospace;
-    text-indent: 30%;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 
+    -2px 0 1px #000, 
+    0 2px 1px #000, 
+    2px 0 1px #000, 
+    0 -2px 1px #000;
+    letter-spacing: 5px;
 }
 
 #cart-items {
@@ -30,10 +43,10 @@ h3 {
 
 .cart-item {
     background-color: #4d0000;
-    width: 500px;
-    left: 30%;
+    width: 50%;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
+    text-align: center;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.568);
     margin-bottom: 10px;
     opacity: .8;
@@ -45,9 +58,42 @@ h3 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+#cart-refresh {
+    text-align: center;
+    margin-top: 10px;
+    width: 50%;
+}
+
+#refresh-btn {
+    height: 30px;
+    width: 160px;
+    border: none;
+    outline: auto;
+    background: #b88700;
+    color: #000000;
+    font-size: 25px;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#refresh-btn:hover {
+    background: #c47500;
+}
+
 #cart-total {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 50px;
+    width: 50%;
+}
+
+#cart-total p {
+    color: #fcfafa;
+    font-size: 25px;
+    text-shadow:
+    -2px 0 1px #000, 
+    0 2px 1px #000, 
+    2px 0 1px #000, 
+    0 -2px 1px #000;
 }
 
 #total-price {
@@ -55,13 +101,17 @@ h3 {
 }
 
 #checkout-btn {
-    height: 50px;
-    width: 200px;
+    height: 60px;
+    width: 300px;
     border: none;
     outline: none;
     background: #018800;
     color: #000000;
-    font-size: 25px;
+    font-size: 40px;
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#checkout-btn:hover {
+    background: #00ad00;
 }
