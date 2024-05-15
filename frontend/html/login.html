@@ -21,21 +21,19 @@
         <!-- Header content will be loaded here -->
     </header>
     <div class="login-box"></div>
-        <form>
-            <h3>Welcome</h3>
-            <h4>Username</h4>
-            <div class="text-box">
-                <input type="text" placeholder="enter username">
-            </div>
-            <h4>Password</h4>
-            <div class="text-box">
-                <input type="password" placeholder="enter password">
-            </div>
-            <input type="submit" value="Login" class="logon-button">
-            <h5>Dont have an account?</h5>
-            <a href="#" class="sign-up">Sign up</a>
-        </form>
-    </div>
-
+    <form>
+        <h3>Welcome</h3>
+        <div class="text-box">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="enter username">
+        </div>
+        <div class="text-box">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="enter password">
+        </div>
+        <input type="submit" value="Login" class="logon-button">
+        <p>Dont have an account?</p>
+        <a href="#" class="sign-up">Sign up</a>
+    </form>
 </body>
 </html>

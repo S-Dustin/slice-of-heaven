@@ -6,16 +6,12 @@
     box-sizing: border-box;
 }
 
-.header_lining {
-    width: 100%;
-    height: 85px;
-    display: block;
-    background-color: #4d0000;
-}
-
 .header {
     width: 100%;
-    height: 80px;
+    height: 85px;
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-color: #4d0000;
     display: block;
     background-color: #7c674f;
 }
@@ -38,7 +34,7 @@
     vertical-align: middle;
     font-size: 70px;
     font-family: "Brush Script MT", 'Arial Narrow Bold', sans-serif;
-    padding-left: 10px;
+    padding-left: 15px;
     font-weight: 800;
 }
 
@@ -72,78 +68,46 @@
 }
 
 .header_menu {
-    height: 100%;
+    height: 60px;
     color: #4d0000;
-    width: 330px;
+    width: fit-content;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     float: right;
+    margin-top: 10px;
 }
 
+.aboutus-button
+.menu-button
+.login-button
 .cart-button {
     border: none;
     background: none;
-    padding: 0;
-    padding-top: 10px;
-    padding-right: 25px;
 }
 
-.cart-button img {
-    width: 70px; /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
+.cart-button img
+.login-button img
+.menu-button img
+.aboutus-button img {
+    height: 60px;
+    width: auto;
     cursor: pointer;
 }
 
 .cart-button img:hover {
-    opacity: 0.5; /* Change opacity on hover for visual feedback */
-}
-
-.login-button {
-    border: none;
-    background: none;
-    padding-top: 10px;
-}
-
-.login-button img {
-    width: 60px; /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
-    cursor: pointer;
+    opacity: .6;
 }
 
 .login-button img:hover {
-    opacity: 0.5; /* Change opacity on hover for visual feedback */
-}
-
-.menu-button {
-    border: none;
-    background: none;
-    padding-top: 15px;
-}
-
-.menu-button img {
-    width: 60px; /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
-    cursor: pointer;
+    opacity: .6;
 }
 
 .menu-button img:hover {
-    opacity: 0.5; /* Change opacity on hover for visual feedback */
-}
-
-.aboutus-button {
-    border: none;
-    background: none;
-    padding-top: 15px;
-}
-
-.aboutus-button img {
-    width: 60px; /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
-    cursor: pointer;
+    opacity: .6;
 }
 
 .aboutus-button img:hover {
-    opacity: 0.5; /* Change opacity on hover for visual feedback */
+    opacity: .6;
 }
 
 .header_menu a:last-child {

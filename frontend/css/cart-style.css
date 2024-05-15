@@ -18,6 +18,7 @@ body {
 .cart-head {
     height: 80px;
     width: 50%;
+    min-width: 400px;
     justify-content: center;
 }
 
@@ -44,6 +45,7 @@ h3 {
 .cart-item {
     background-color: #4d0000;
     width: 50%;
+    min-width: 400px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -52,38 +54,37 @@ h3 {
     opacity: .8;
 }
 
+/* Styles for plus and minus buttons */
+.quantity-btn {
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    cursor: pointer;
+    border: none;
+    background-color: #ccc;
+    color: #333;
+}
+
 .cart-item p {
     margin: 5px 0;
     color: #fcfafa;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#cart-refresh {
-    text-align: center;
-    margin-top: 10px;
-    width: 50%;
+h4 {
+    margin: 5px 0;
+    color: #cacc66;
+    font-size: 20px;
 }
 
-#refresh-btn {
-    height: 30px;
-    width: 160px;
-    border: none;
-    outline: auto;
-    background: #b88700;
-    color: #000000;
-    font-size: 25px;
-    border-radius: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-#refresh-btn:hover {
-    background: #c47500;
+del {
+    text-decoration: line-through;
 }
 
 #cart-total {
     text-align: center;
     margin-top: 50px;
     width: 50%;
+    min-width: 400px;
 }
 
 #cart-total p {
