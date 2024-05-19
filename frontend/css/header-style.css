@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+.spacer {
+    height: 85px;
+    width: 100%;
+    background-color:  rgba(0, 0, 0, 0.0);
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -80,41 +86,27 @@
     margin-top: 10px;
 }
 
-#aboutus-button
-#menu-button
-#account-button
-#login-button
+#aboutus-button,
+#account-button,
+#menu-button,
 #cart-button {
     border: none;
     background: none;
+    margin: 0 10px;
 }
 
-#cart-button img
-#login-button img
-#account-button img
-#menu-button img
+#cart-button img,
+#account-button img,
+#menu-button img,
 #aboutus-button img {
     height: 60px;
     width: auto;
     cursor: pointer;
 }
 
-#cart-button img:hover {
-    opacity: .6;
-}
-
-#login-button img:hover {
-    opacity: .6;
-}
-
-#account-button img:hover {
-    opacity: .6;
-}
-
-#menu-button img:hover {
-    opacity: .6;
-}
-
+#cart-button img:hover,
+#account-button img:hover,
+#menu-button img:hover,
 #aboutus-button img:hover {
     opacity: .6;
 }

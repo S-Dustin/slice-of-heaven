@@ -15,12 +15,6 @@ body {
     height: 100vh;
 }
 
-.spacer {
-    height: 80px;
-    width: 100%;
-    background-color: #7c674f;
-}
-
 .cart-head {
     height: 80px;
     width: 50%;

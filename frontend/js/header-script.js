@@ -16,24 +16,27 @@ function updateCartCount() {
 }
 
 function updateHeaderButtons() {
- 
-    console.log('Updating Header.');
     const role = sessionStorage.getItem('role');
-    const loginButton = document.getElementById('login-button');
+    const accountButton = document.getElementById('account-button');
     const menuButton = document.getElementById('menu-button');
 
     if (role) {
-        loginButton.innerHTML = '<a href="account.html"><img src="../images/account.png" alt="Account"></a>';
+        // Replace the login button with the account button and update href
+        accountButton.innerHTML = '<img src="../images/account.png" alt="Account">';
+        accountButton.href = 'account.html';
     }
 
     if (role === 'admin') {
-        loginButton.innerHTML = '<a href="account.html"><img src="../images/admin.png" alt="Account"></a>';
-        menuButton.innerHTML = '<a href="admin-dash.html"><img src="../images/admin-dash.png" alt="Admin Dashboard"></a>';
-    }
+        // Replace the account button with the admin button and update href
+        accountButton.innerHTML = '<img src="../images/admin.png" alt="Account">';
+        accountButton.href = 'account.html';
 
-    // Set the flag indicating the header has been updated
-    sessionStorage.setItem('headerUpdated', 'true');
+        // Replace the menu button with the admin dashboard button and update href
+        menuButton.innerHTML = '<img src="../images/admin-dash.png" alt="Admin Dashboard">';
+        menuButton.href = 'admin-dash.html';
+    }
 }
 
 // Call the function to update cart count initially
 updateCartCount();
+updateHeaderButtons();

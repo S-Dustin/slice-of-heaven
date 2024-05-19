@@ -3,8 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const menuRoutes = require("./routes/menu-routes");
-const loginRoutes = require("./routes/login-routes");
+const menuRoutes = require("./routes/menu-routes"); // Imports menu routes
+const loginRoutes = require("./routes/login-routes"); // Imports login routes
+const userRoutes = require("./routes/user-routes"); // Imports user routes
 
 const uri = 'mongodb+srv://sliceofheaven:G6zcXJ8LGh6LTxJW@heavenscluster.lnxc31q.mongodb.net/Slice_of_Heaven?retryWrites=true&w=majority&appName=HeavensCluster';
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 
 app.use('/menu', menuRoutes);
 app.use('/auth', loginRoutes);
+app.use('/user', userRoutes);
 
 app.listen(8000, () => {
     console.log("Server started on port 8000");

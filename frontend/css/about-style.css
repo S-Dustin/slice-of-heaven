@@ -16,12 +16,6 @@ body {
     height: 100vh;
 }
 
-.spacer {
-    height: 80px;
-    width: 100%;
-    background-color: #7c674f;
-}
-
 .info {
     width: 800px;
     height: fit-content;
@@ -30,7 +24,7 @@ body {
     border-color: #4d0000;
     margin: auto;
     border-radius: 20px;
-    margin-top: 75px;
+    margin-top: 60px;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.6); /* Add shadow */
     font-family: Georgia, 'Times New Roman', Times, serif;
 }

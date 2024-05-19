@@ -14,12 +14,6 @@ body {
     height: 100vh;
 }
 
-.spacer {
-    height: 80px;
-    width: 100%;
-    background-color: #7c674f;
-}
-
 .login-box {
     width: 100%;
     height: 10%;

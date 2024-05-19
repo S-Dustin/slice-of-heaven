@@ -11,12 +11,6 @@ body {
     background-color: #f0f0f0;
 }
 
-.spacer {
-    height: 80px;
-    width: 100%;
-    background-color: #7c674f;
-}
-
 h3 {
     text-align: center;
     color: #333;
@@ -92,4 +86,10 @@ h3 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.spacer {
+    height: 85px;
+    width: 100%;
+    background-color:  rgba(0, 0, 0, 0.0);
 }

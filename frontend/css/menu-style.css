@@ -10,11 +10,6 @@ body {
     background-color: #333;
 }
 
-.spacer {
-    height: 80px;
-    width: 100%;
-    background-color: #7c674f;
-}
 /* Styles for menu item containers */
 .menu-item {
     border: 1px solid #ccc;
