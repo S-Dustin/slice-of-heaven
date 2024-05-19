@@ -1,19 +1,34 @@
+/// server.js
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
+const menuRoutes = require("./routes/menu-routes");
+const loginRoutes = require("./routes/login-routes");
 
-const uri = 'mongodb+srv://sliceofheaven:2eyO4vF4NCQfHS9r@heavenscluster.lnxc31q.mongodb.net/?retryWrites=true&w=majority&appName=HeavensCluster'
+const uri = 'mongodb+srv://sliceofheaven:G6zcXJ8LGh6LTxJW@heavenscluster.lnxc31q.mongodb.net/Slice_of_Heaven?retryWrites=true&w=majority&appName=HeavensCluster';
 
 async function connect() {
     try {
-        await mongoose.connect(uri)
-        console.log("Connected to MongoDB")
+        await mongoose.connect(uri);
+        console.log("Connected to MongoDB");
     } catch (error) {
-        console.error(error);
+        console.error("Error connecting to MongoDB", error);
     }
 }
 
 connect();
+
+app.use(cors());
+app.use(express.json());
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
+app.use('/menu', menuRoutes);
+app.use('/auth', loginRoutes);
 
 app.listen(8000, () => {
     console.log("Server started on port 8000");

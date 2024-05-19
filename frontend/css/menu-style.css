@@ -7,37 +7,89 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #333;
 }
 
-h3 {
-    text-align: center;
+.spacer {
+    height: 80px;
+    width: 100%;
+    background-color: #7c674f;
+}
+/* Styles for menu item containers */
+.menu-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+}
+
+/* Styles for menu item names */
+.menu-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Styles for menu item descriptions */
+.menu-item p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Styles for menu item prices */
+.menu-item .price {
+    font-weight: bold;
+}
+
+/* Styles for discounted prices */
+.menu-item .discount-price {
+    color: limegreen;
+    font-style: italic;
+}
+
+/* Styles for menu item images */
+.menu-item img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Styles for menu container */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust gap between columns as needed */
+}
+
+/* Styles for each category */
+.menu-category {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9; /* Adjust background color as needed */
+}
+
+/* CSS for category headers */
+.category h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
     color: #333;
 }
 
-.menu-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.menu-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
+/* CSS for menu category containers */
+.menu-category {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
-.menu-item h4 {
-    margin-top: 0;
-    color: #333;
+del {
+    text-decoration: line-through;
 }
 
-.menu-item p {
-    margin: 10px 0;
-    color: #666;
+/* Additional styling for menu items (if needed) */
+.menu-item {
+    /* Add your styles here */
 }

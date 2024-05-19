@@ -11,6 +11,12 @@ body {
     background-color: #f0f0f0;
 }
 
+.spacer {
+    height: 80px;
+    width: 100%;
+    background-color: #7c674f;
+}
+
 h3 {
     text-align: center;
     color: #333;
