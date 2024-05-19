@@ -5,6 +5,115 @@
     text-decoration: none;
     box-sizing: border-box;
 }
+
+.spacer {
+    height: 85px;
+    width: 100%;
+    background-color:  rgba(0, 0, 0, 0.0);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-color: #4d0000;
+    display: block;
+    background-color: #7c674f;
+    z-index: 1000;
+}
+
+.header_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+}
+
+.logo {
+    height: 100%;
+    display: table;
+    float: left;
+}
+
+.logo h1 {
+    color: #4d0000;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 70px;
+    font-family: "Brush Script MT", 'Arial Narrow Bold', sans-serif;
+    padding-left: 15px;
+    font-weight: 800;
+}
+
+.logo h1 span {
+    color: black;
+    font-weight: 100;
+}
+
+.logo h1 a {
+    color: inherit; /* Use the color inherited from the parent element */
+    text-decoration: none; /* Remove underline */
+}
+
+.subhead {
+    height: 100%;
+    align-content: center;
+    padding-left: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.subhead h2 {
+    font-weight: 200;
+    color: black;
+    font-family: monospace, sans-serif;
+}
+
+.subhead h2 span {
+    font-weight: 800;
+    color: #4d0000;
+}
+
+.header_menu {
+    height: 60px;
+    color: #4d0000;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    float: right;
+    margin-top: 10px;
+}
+
+#aboutus-button,
+#account-button,
+#menu-button,
+#cart-button {
+    border: none;
+    background: none;
+    margin: 0 10px;
+}
+
+#cart-button img,
+#account-button img,
+#menu-button img,
+#aboutus-button img {
+    height: 60px;
+    width: auto;
+    cursor: pointer;
+}
+
+#cart-button img:hover,
+#account-button img:hover,
+#menu-button img:hover,
+#aboutus-button img:hover {
+    opacity: .6;
+}
+
+.header_menu a:last-child {
+    padding-right: 20px;
+}
 /* Customize your styles here */
 body {
     background-color: #3b3b3b;

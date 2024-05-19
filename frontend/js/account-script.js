@@ -3,15 +3,32 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function fetchUserInfo() {
         try {
             const token = sessionStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/user', {
+            const username = sessionStorage.getItem('username'); // Assume username is also stored
+
+            console.log('Token:', token);
+            console.log('Username:', username);
+
+            let url = `http://localhost:8000/user`;
+
+            // Decide to use userId or username
+            if (userId) {
+                url += `?userId=${userId}`;
+            } else if (username) {
+                url += `?username=${username}`;
+            }
+
+            const response = await fetch(url, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
+
             if (!response.ok) {
+                console.error('Response:', response);
                 throw new Error('Failed to fetch user information');
             }
+
             const userData = await response.json();
             return userData;
         } catch (error) {
@@ -21,6 +38,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Function to display user information
     function displayUserInfo(user) {
+        console.log('User information:', user);
+        console.log('User email:', user.email);
         const userFirstNameElement = document.getElementById('userFirstName');
         const userInfoElement = document.getElementById('userInfo');
         userFirstNameElement.textContent = user.firstName;
@@ -29,7 +48,24 @@ document.addEventListener('DOMContentLoaded', async function() {
             <p>First Name: ${user.firstName}</p>
             <p>Last Name: ${user.lastName}</p>
             <p>Email: ${user.email}</p>
-            <p>Address: ${user.address || 'Not available'}</p>
+            <p>Address: ${user.street || 'Not available'}, ${user.city || ''}, ${user.stateAbr || ''} ${user.zipcode || ''}</p>
+        `;
+        userInfoElement.innerHTML = userInfoHTML;
+    }
+
+    // Function to display user information
+    function displayUserInfo(user) {
+        console.log('User information:', user);
+        console.log('User email:', user.email);
+        const userFirstNameElement = document.getElementById('userFirstName');
+        const userInfoElement = document.getElementById('userInfo');
+        userFirstNameElement.textContent = user.firstName;
+
+        const userInfoHTML = `
+            <p>First Name: ${user.firstName}</p>
+            <p>Last Name: ${user.lastName}</p>
+            <p>Email: ${user.email}</p>
+            <p>Address: ${user.street || 'Not available'}, ${user.city || ''}, ${user.stateAbr || ''} ${user.zipcode || ''}</p>
         `;
         userInfoElement.innerHTML = userInfoHTML;
     }
@@ -79,12 +115,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Function to log out
     function logOut() {
         sessionStorage.removeItem('token');
+        sessionStorage.removeItem('role');
+        sessionStorage.removeItem('username');
         window.location.href = 'login.html';
+        const token = '';
+        const username = '';
     }
 
     // Fetch user information and display it on the page
     const user = await fetchUserInfo();
     if (user) {
+        console.log('User information:', user);
         displayUserInfo(user);
     }
 

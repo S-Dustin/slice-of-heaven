@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+require('dotenv').config();
 const menuRoutes = require("./routes/menu-routes"); // Imports menu routes
 const loginRoutes = require("./routes/login-routes"); // Imports login routes
 const userRoutes = require("./routes/user-routes"); // Imports user routes
