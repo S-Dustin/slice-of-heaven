@@ -186,3 +186,102 @@ body {
 	grid-column: 2;
   	grid-row: 4;
 }
+
+.mapimage img {
+	width: 295px;
+	height: 200px;
+}
+
+.pizzadecor {
+	width: 800px;
+	height: 400px;
+	border: 3px solid Maroon;
+	background-color: White;
+
+	grid-column: 3;
+	grid-row: 1;
+}
+
+.pizzahome img {
+	width: 800px;
+	height: 400px;
+}
+
+.dailys {
+	width: 800px;
+	height: 500px;
+	border: 3px solid Maroon;
+	background-color: Gold;
+	text-align: center;
+
+	grid-column: 3;
+	grid-row: 3;
+
+}
+
+
+.headliner {
+	font-family: Times New Roman, sans-serif;
+	color: Maroon;
+	font-size: 50px;
+    	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+}
+
+.promotion {
+	width: 800px;
+	height: 300px;
+
+	background-color: white;
+	grid-column: 3;
+	grid-row: 3;
+}
+
+.adspace img {
+	width: 800px;
+	height: 300px;
+}
+
+.menu {
+	width: 290px;
+	height: 800px;
+	font-family: Times New Roman, sans-serif;
+	font-size: 50px;
+    	font-weight: bold;
+	text-align: center;
+	color: Maroon;
+	border: solid Maroon;
+	background-color: gold;
+
+	grid-column: 5;
+	grid-row: 1;
+}
+
+.deals {
+	width: 280px;
+	height: 500px;
+	border: solid black;
+	background-color: white;
+	font-size: 25px;
+	color: black;
+}
+
+.menubutton {
+	width: 300px;
+	height: 100px;
+	font-family: Times New Roman, sans-serif;
+	color: maroon;
+	font-size: 40px;
+	font-weight: Bold;
+	text-align: center;
+	text-decoration: none;
+
+	grid-column: 5;
+	grid-row: 5;
+}
+
+.menulink {
+	color: inherit;
+	text-decoration: none;
+}
