@@ -7,9 +7,31 @@
 }
 
 body {
-    background-color: #333;
+    width: 100%;
+    background-color: black;
+    background-image: url(../images/menu-backer.jpg);
+    background-size: cover; /* Adjusts the background image size to cover the entire webpage */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed;
+    height: 100vh;
 }
 
+h3 {
+    width: 100%;
+    font-size: 60px;
+    text-align: center;
+    color: #d4b38c;
+}
+
+.container {
+    width: 1150px;
+    height: fit-content;
+    align-items: center;
+    padding: 30px 50px;
+    border-radius: 40px;
+    margin: auto;
+    top: calc(50% + 100px);
+}
 /* Styles for menu item containers */
 .menu-item {
     border: 1px solid #ccc;
@@ -17,17 +39,20 @@ body {
     margin: 10px;
     padding: 10px;
     width: 300px;
+    background-color: rgb(122, 122, 122);
+
 }
 
 /* Styles for menu item names */
 .menu-item h3 {
-    font-size: 18px;
+    color: #4e3c09;
+    font-size: 25px;
     margin-bottom: 5px;
 }
 
 /* Styles for menu item descriptions */
 .menu-item p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
@@ -53,38 +78,37 @@ body {
 /* Styles for menu container */
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 340px);
     gap: 20px; /* Adjust gap between columns as needed */
+
 }
 
 /* Styles for each category */
 .menu-category {
-    border: 1px solid #ccc;
+    width: 350px;
+    text-align: center;
+    position: absolute;
+
     border-radius: 5px;
     padding: 10px;
-    background-color: #f9f9f9; /* Adjust background color as needed */
+    background-color: rgba(0, 0, 0, 0); /* Adjust background color as needed */
 }
 
 /* CSS for category headers */
 .category h4 {
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 10px;
-    color: #333;
+    color: #c7c7c7;
+    text-align: center;
 }
 
 /* CSS for menu category containers */
 .menu-category {
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 del {
     text-decoration: line-through;
-}
-
-/* Additional styling for menu items (if needed) */
-.menu-item {
-    /* Add your styles here */
 }

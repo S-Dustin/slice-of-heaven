@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/pep-slice.png" type="image/x-icon">
+    <title>Cart of Heaven</title>
+    <link rel="stylesheet" href="./css/checkout-style.css">
+</head>
+<body>
+    <!-- Navigation Bar Container-->
+    <div id="header-container"></div>
+    <div class="container">
+        <div id="item-details">
+        <!-- Display item details here -->
+        </div>
+        <div id="address-details">
+            <h2>Enter Address</h2>
+            <input type="text" id="street" placeholder="Street">
+            <input type="text" id="city" placeholder="City">
+            <input type="text" id="stateAbr" placeholder="State">
+            <input type="text" id="zipcode" placeholder="Zipcode">
+        </div>
+        <div id="card-details">
+            <h2>Enter Credit Card Information</h2>
+            <input type="text" id="card-number" placeholder="Card Number">
+            <input type="text" id="card-name" placeholder="Name on Card">
+            <input type="text" id="expiration-date" placeholder="Expiration Date (MM/YY)">
+            <input type="text" id="cvv" placeholder="CVV">
+        </div>
+        <div id="order-summary">
+            <h2>Order Summary</h2>
+            <p id="subtotal">Subtotal: $0.00</p>
+            <p id="delivery-fees">Delivery Fees: $0.00</p>
+            <p id="tax">Tax: $0.00</p>
+            <p id="total">Total: $0.00</p>
+        </div>
+        <div class="btn-container">
+            <button id="checkout-btn" disabled>Checkout</button>
+        </div>
+    </div>
+    <script src="./js/checkout-script.js"></script>
+    <script src="./js/header-loader.js"></script>
+</body>
+</html>

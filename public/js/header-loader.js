@@ -15,7 +15,7 @@ function loadHeader() {
 
 function loadHeaderScripts() {
     const script = document.createElement('script');
-    script.src = '../js/header-script.js';
+    script.src = './js/header-script.js';
     document.body.appendChild(script);
 }
 
