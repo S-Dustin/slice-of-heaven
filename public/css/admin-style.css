@@ -7,16 +7,51 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    width: 100%;
+    background-color: black;
+    background-image: url(../images/menu-backer.jpg);
+    background-size: cover; /* Adjusts the background image size to cover the entire webpage */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+h3 {
+    width: 100%;
+    font-size: 60px;
+    text-align: center;
+    color: #ca8a00;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 
+    -2px 0 1px #000, 
+    0 2px 1px #000, 
+    2px 0 1px #000, 
+    0 -2px 1px #000;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 50px;
+    margin-top: 10px;
+    color: #c7c7c7;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 
+    -2px 0 1px #000, 
+    0 2px 1px #000, 
+    2px 0 1px #000, 
+    0 -2px 1px #000;
 }
 
 #itemForm {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ac8e6c;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #itemForm input[type="text"],
@@ -50,6 +85,7 @@ select:focus {
 
 #itemForm label {
     margin-left: 5px;
+    font-size: 20px;
 }
 
 .button-container {
@@ -65,15 +101,53 @@ select:focus {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 #itemForm button:hover {
     background-color: #0056b3;
 }
 
-#logout {
-    display: block;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.menu-container {
+    width: 100%;
+    height: fit-content;
+    grid-template-columns: 1fr 340px 340px 340px 1fr;
+    display: grid;
+}
+
+.menu-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    background-color: rgba(48, 48, 48, 0.692);
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.menu-item p {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: beige;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+#item-button {
+    width: 49%;
+    height: 25px;
+    text-align: center;
+    background-color: beige;
+    transition: 0.3s;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+#item-button:hover {
+    background-color: rgb(189, 150, 91);
 }

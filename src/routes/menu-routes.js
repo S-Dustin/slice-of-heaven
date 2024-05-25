@@ -28,7 +28,8 @@ router.get("/", async (req, res) => {
 // Update a menu item by name
 router.put("/", async (req, res) => {
     try {
-        const name = req.query.name;
+        const name = req.body.name;
+        console.log(name);
         // Find the menu item by name in the database
         const menuItem = await MenuItem.findOne({ name: name });
         if (menuItem) {

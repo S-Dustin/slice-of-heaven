@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Check if the item already exists by name
-            const response = await fetch(`/menuUpdate?name=${encodeURIComponent(document.getElementById('itemName').value)}`);
+            const response = await fetch(`/menuUpdate?name=${encodeURIComponent(formDataObject.name)}`);
             const existingItem = await response.json();
             if (response.ok && existingItem) {
                 // If item exists, call the PUT route
@@ -140,8 +140,8 @@ function displayMenuItem(item, container) {
         <p>Discount: ${item.discount ? 'Yes' : 'No'}</p>
         ${item.discount ? `<p>Discount Price: $${item.discountedPrice}</p>` : ''}
         <img src="${item.picture}" alt="${item.name}">
-        <button onclick="startEditMenuItem('${item.name}')">Edit</button>
-        <button onclick="deleteMenuItem('${item.name}')">Delete</button>
+        <button id='item-button' onclick="startEditMenuItem('${item.name}')">Edit</button>
+        <button id='item-button' onclick="deleteMenuItem('${item.name}')">Delete</button>
     `;
     container.appendChild(menuItemDiv);
 }
@@ -154,6 +154,10 @@ async function startEditMenuItem(itemName) {
             alert('Menu item not found');
             return;
         }
+
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
         const formHeading = document.getElementById('formHeading');
         const submitButton = document.getElementById('submitButton');
         const updateButton = document.getElementById('updateButton');
@@ -284,8 +288,8 @@ function displayImagePreview() {
 
 // Function to validate uploaded image
 function validateImage(file) {
-    const MAX_WIDTH = 512;
-    const MAX_HEIGHT = 512;
+    const MAX_WIDTH = 300;
+    const MAX_HEIGHT = 300;
     const ALLOWED_TYPES = ['image/jpeg', 'image/jpg'];
 
     if (!ALLOWED_TYPES.includes(file.type)) {
@@ -299,7 +303,7 @@ function validateImage(file) {
     return new Promise((resolve, reject) => {
         image.onload = function() {
             if (image.width > MAX_WIDTH || image.height > MAX_HEIGHT) {
-                alert('Image dimensions should not exceed 512x512 pixels.');
+                alert('Image dimensions should not exceed 300x300 pixels.');
                 reject();
             } else {
                 resolve();

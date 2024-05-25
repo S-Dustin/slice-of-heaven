@@ -44,7 +44,7 @@ h3 {
 .menu-item {
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
     width: 300px;
     background-color: rgba(48, 48, 48, 0.692);
@@ -61,12 +61,20 @@ h3 {
     font-size: 18px;
     margin-bottom: 10px;
     color: beige;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
 }
+
 .add-to-cart-btn {
     width: 100%;
-    height: 50px;
-    
+    height: 40px;
+    background-color: beige;
+    font-size: 15px;
+    font-family: Verdana, sans-serif;
+    transition: 0.4s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: rgb(202, 189, 128);
 }
 
 /* Styles for menu item prices */
@@ -91,7 +99,7 @@ h3 {
 /* Styles for menu container */
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(3, 340px);
+    grid-template-columns: 1fr 340px 340px 340px 1fr;
     gap: 20px; /* Adjust gap between columns as needed */
 
 }

@@ -6,7 +6,6 @@
     <link rel="icon" href="./images/pep-slice.png" type="image/x-icon">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./css/admin-style.css">
-    <link rel="stylesheet" href="./css/menu-style.css">
 </head>
 <body>
     <div id="header-container"></div>
@@ -37,9 +36,22 @@
             </div>
         </form>
         <h3>Menu Items</h3>
-        <div id="pizzas-container"></div>
-        <div id="sides-container"></div>
-        <div id="drinks-container"></div>
+        <div class="menu-container">
+            <div id="spacer-container"></div>
+            <div id="filled-container">
+                <h4>Sides</h4>
+                <div id="sides-container"></div>
+            </div>
+            <div id="filled-container">
+                <h4>Pizza</h4>
+                <div id="pizzas-container"></div>
+            </div>
+            <div id="filled-container">
+                <h4>Drinks</h4>
+                <div id="drinks-container"></div>
+            </div>
+            <div id="spacer-container"></div>
+        </div>
     </div>
     <script src="./js/header-loader.js"></script>
     <script src="./js/admin-dash-script.js"></script>
