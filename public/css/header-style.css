@@ -90,6 +90,8 @@
 #account-button,
 #menu-button,
 #cart-button {
+    position: relative;
+    display: inline-block;
     border: none;
     background: none;
     margin: 0 10px;
@@ -113,4 +115,18 @@
 
 .header_menu a:last-child {
     padding-right: 20px;
+}
+
+#cart-count {
+    display: none; /* Hide the count initially */
+    position: absolute;
+    width: 28px;
+    height: 24px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background-color: #0092d6;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
 }

@@ -1,13 +1,17 @@
 // user-routes.js
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middleware/auth-middleware');
 const User = require('../models/user-model');
 
-// Route to fetch user information
-router.get('/', authMiddleware, async (req, res) => {
+// Route to fetch user information by username
+router.get('/', async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId).select('-password -username'); // Exclude the password and username fields
+        const username = req.query.username;
+        if (!username) {
+            return res.status(400).json({ message: 'Username is required' });
+        }
+
+        const user = await User.findOne({ username }).select('-password'); // Exclude the password field
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -18,13 +22,13 @@ router.get('/', authMiddleware, async (req, res) => {
     }
 });
 
-module.exports = router;
-
 // Route to update user address
-router.put('/address', authMiddleware, async (req, res) => {
+router.put('/address', async (req, res) => {
     try {
-        const { street, city, stateAbr, zipcode } = req.body;
-        const username = req.user.username;
+        const { username, street, city, stateAbr, zipcode } = req.body;
+        if (!username) {
+            return res.status(400).json({ message: 'Username is required' });
+        }
 
         const updatedUser = await User.findOneAndUpdate({ username }, { 
             street, city, stateAbr, zipcode 
@@ -42,9 +46,12 @@ router.put('/address', authMiddleware, async (req, res) => {
 });
 
 // Route to remove user address
-router.delete('/address', authMiddleware, async (req, res) => {
+router.delete('/address', async (req, res) => {
     try {
-        const username = req.user.username;
+        const { username } = req.body;
+        if (!username) {
+            return res.status(400).json({ message: 'Username is required' });
+        }
 
         const updatedUser = await User.findOneAndUpdate({ username }, { 
             street: null, city: null, stateAbr: null, zipcode: null 

@@ -8,10 +8,14 @@ itemDetailsContainer.innerHTML = '';
 items.forEach(item => {
     const itemElement = document.createElement('div');
     itemElement.classList.add('item');
+    
+    // Determine the price to display based on whether discount is applicable
+    const priceToDisplay = item.discount ? item.discountedPrice : item.price;
+    
     itemElement.innerHTML = `
         <h3>${item.name}</h3>
         <p>Quantity: ${item.quantity}</p>
-        <p>Price: $${item.price.toFixed(2)}</p>
+        <p>Price: $${priceToDisplay.toFixed(2)}</p>
     `;
     itemDetailsContainer.appendChild(itemElement);
 });
@@ -19,10 +23,12 @@ items.forEach(item => {
 // Calculate total amount
 let subtotal = 0;
 items.forEach(item => {
-    subtotal += item.quantity * item.price;
+    // Determine the price to use for subtotal calculation based on whether discount is applicable
+    const priceToUse = item.discount ? item.discountedPrice : item.price;
+    subtotal += item.quantity * priceToUse;
 });
-const deliveryFees = 0.06 * subtotal;
-const tax = 0.12 * subtotal;
+const deliveryFees = 0.06 * subtotal + 3.00;
+const tax = 0.18 * subtotal;
 const total = subtotal + deliveryFees + tax;
 
 // Display order summary

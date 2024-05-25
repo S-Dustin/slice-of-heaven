@@ -7,11 +7,13 @@ function updateCartCount() {
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
     
     // Get the cart count element
-    const cartCount = document.getElementById('cart-count');
+    const cartCountElement = document.getElementById('cart-count');
     
     // Update the cart count
-    if (cartCount) {
-        cartCount.textContent = totalQuantity;
+    if (cartCountElement) {
+        cartCountElement.textContent = totalQuantity;
+        // Toggle visibility based on total quantity
+        cartCountElement.style.display = totalQuantity > 0 ? 'inline-block' : 'none';
     }
 }
 
@@ -22,18 +24,18 @@ function updateHeaderButtons() {
 
     if (role) {
         // Replace the login button with the account button and update href
-        accountButton.innerHTML = '<img src="../images/account.png" alt="Account">';
-        accountButton.href = 'account.html';
+        accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
+        accountButton.href = '/account';
     }
 
     if (role === 'admin') {
         // Replace the account button with the admin button and update href
-        accountButton.innerHTML = '<img src="../images/admin.png" alt="Account">';
-        accountButton.href = 'account.html';
+        accountButton.innerHTML = '<img src="./images/admin.png" alt="Account">';
+        accountButton.href = '/account';
 
         // Replace the menu button with the admin dashboard button and update href
-        menuButton.innerHTML = '<img src="../images/admin-dash.png" alt="Admin Dashboard">';
-        menuButton.href = 'admin-dash.html';
+        menuButton.innerHTML = '<img src="./images/admin-dash.png" alt="Admin Dashboard">';
+        menuButton.href = '/admin-dash';
     }
 }
 

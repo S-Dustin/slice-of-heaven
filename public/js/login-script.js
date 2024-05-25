@@ -23,7 +23,6 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         // Save the token and role to sessionStorage
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('role', data.role);
-        sessionStorage.setItem('id', data.id);
         sessionStorage.setItem('username', data.username);
 
         // Reload the header to update based on login status

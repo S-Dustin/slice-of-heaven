@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             let url = `http://localhost:8000/user`;
 
-            // Decide to use userId or username
-            if (userId) {
-                url += `?userId=${userId}`;
-            } else if (username) {
-                url += `?username=${username}`;
+            // Add username query parameter to the URL
+            if (username) {
+                url += `?username=${encodeURIComponent(username)}`;
+            } else {
+                throw new Error('Username not found in session storage');
             }
 
             const response = await fetch(url, {
@@ -36,22 +36,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    // Function to display user information
-    function displayUserInfo(user) {
-        console.log('User information:', user);
-        console.log('User email:', user.email);
-        const userFirstNameElement = document.getElementById('userFirstName');
-        const userInfoElement = document.getElementById('userInfo');
-        userFirstNameElement.textContent = user.firstName;
-
-        const userInfoHTML = `
-            <p>First Name: ${user.firstName}</p>
-            <p>Last Name: ${user.lastName}</p>
-            <p>Email: ${user.email}</p>
-            <p>Address: ${user.street || 'Not available'}, ${user.city || ''}, ${user.stateAbr || ''} ${user.zipcode || ''}</p>
-        `;
-        userInfoElement.innerHTML = userInfoHTML;
-    }
 
     // Function to display user information
     function displayUserInfo(user) {
@@ -62,8 +46,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         userFirstNameElement.textContent = user.firstName;
 
         const userInfoHTML = `
-            <p>First Name: ${user.firstName}</p>
-            <p>Last Name: ${user.lastName}</p>
             <p>Email: ${user.email}</p>
             <p>Address: ${user.street || 'Not available'}, ${user.city || ''}, ${user.stateAbr || ''} ${user.zipcode || ''}</p>
         `;

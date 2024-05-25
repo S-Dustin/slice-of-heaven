@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Node app that connects to MongoDB",
-  "main": "home.html",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node server.js",
-    "dev": "nodemon server.js"
+    "serve": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Dustin Sauter",
   "license": "MIT",
@@ -23,6 +23,6 @@
     "nodemon": "^3.1.0"
   },
   "engines": {
-    "node": "20.13.1"
+    "node": "20.x"
   }
 }
