@@ -1,7 +1,7 @@
 // routes/login-routes.js
 const express = require('express');
 const User = require('../models/user-model');
-const { generateToken } = require('../../public/js/utils/jwt');
+const { generateToken } = require('../utils/jwt');
 const bcrypt = require('bcryptjs'); // Ensure bcrypt is required if not already
 const router = express.Router();
 

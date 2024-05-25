@@ -7,7 +7,7 @@ const userRoutes = require('./user-routes');
 const router = express.Router();
 
 router.use('/menuUpdate', menuRoutes);
-router.use('/auth', loginRoutes);
-router.use('/user', userRoutes);
+router.use('/authUser', loginRoutes);
+router.use('/userInfo', userRoutes);
 
 module.exports = router;

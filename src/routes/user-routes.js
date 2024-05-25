@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 // Route to update user address
-router.put('/address', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
         const { username, street, city, stateAbr, zipcode } = req.body;
         if (!username) {
@@ -46,7 +46,7 @@ router.put('/address', async (req, res) => {
 });
 
 // Route to remove user address
-router.delete('/address', async (req, res) => {
+router.delete('/', async (req, res) => {
     try {
         const { username } = req.body;
         if (!username) {

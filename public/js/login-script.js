@@ -6,7 +6,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:8000/auth', {
+        const response = await fetch('/authUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,8 +25,8 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         sessionStorage.setItem('role', data.role);
         sessionStorage.setItem('username', data.username);
 
-        // Reload the header to update based on login status
-        window.location.href = 'account.html';
+        // Reload to accounts page if login is successful
+        window.location.href = '/account';
     } catch (error) {
         console.error('Error:', error);
     }
