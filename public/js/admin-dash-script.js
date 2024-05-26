@@ -1,3 +1,38 @@
+// Function to verify the token and check for admin role
+async function verifyToken() {
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+        throw new Error('Token not found');
+    }
+
+    try {
+        const response = await fetch('/userInfo/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+        });
+
+        if (!response.ok) {
+            throw new Error('Token verification failed');
+        }
+
+        const data = await response.json();
+        console.log('Token is valid:', data);
+
+        // Check if the user has the admin role
+        if (data.user.role !== 'admin') {
+            throw new Error('User is not an admin');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error verifying token:', error.message);
+        throw error;
+    }
+}
+
 // Function to reset the form fields
 function resetForm() {
     const itemForm = document.getElementById('itemForm');
@@ -22,7 +57,17 @@ function resetForm() {
 }
 
 // Function to handle form submission
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Verify token before proceeding
+    try {
+        await verifyToken();
+    } catch (error) {
+        // Redirect to login page if token is invalid
+        alert('You are not authorized to access this page.');
+        window.location.href = '/login';
+        return;
+    }
+
     displayImagePreview();
 
     document.getElementById('itemForm').addEventListener('submit', async function(event) {

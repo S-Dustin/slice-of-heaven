@@ -31,15 +31,6 @@ h3 {
     margin-bottom: 10px;
 }
 
-.container {
-    width: 1150px;
-    height: fit-content;
-    align-items: center;
-    padding: 30px 50px;
-    border-radius: 40px;
-    margin: auto;
-    top: calc(50% + 100px);
-}
 /* Styles for menu item containers */
 .menu-item {
     border: 1px solid #ccc;
@@ -100,19 +91,16 @@ h3 {
 .menu-container {
     display: grid;
     grid-template-columns: 1fr 340px 340px 340px 1fr;
-    gap: 20px; /* Adjust gap between columns as needed */
-
+    gap: 20px;
 }
 
-/* Styles for each category */
 .menu-category {
     width: 350px;
     text-align: center;
     position: absolute;
-
     border-radius: 5px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0); /* Adjust background color as needed */
+    background-color: rgba(0, 0, 0, 0);
 }
 
 /* CSS for category headers */
@@ -138,4 +126,34 @@ h3 {
 
 del {
     text-decoration: line-through;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+@media (max-width: 900px) {
+    .menu-container {
+        grid-template-columns: 1fr; /* Set a single column layout for smaller screens */
+        justify-content: center; /* Center menu items horizontally */
+    }
+
+    .menu-category {
+        position: static; /* Remove absolute positioning */
+        width: auto; /* Allow category containers to adjust width based on content */
+        margin-bottom: 20px; /* Add margin for better spacing */
+    }
+
+    .menu-item {
+        margin: 10px auto; /* Center menu items within the category */
+    }
 }

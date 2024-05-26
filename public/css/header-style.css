@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -7,44 +7,45 @@
 }
 
 .spacer {
-    height: 85px;
+    height: 150px;
     width: 100%;
-    background-color:  rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
 .header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 85px;
+    height: auto; /* Adjust to auto to allow content to wrap */
     border-width: 0 0 5px;
     border-style: solid;
     border-color: #4d0000;
     display: block;
     background-color: #7c674f;
     z-index: 1000;
+    padding: 10px 0; /* Add padding for better spacing */
 }
 
 .header_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px; /* Add padding to prevent touching edges */
 }
 
 .logo {
-    height: 100%;
-    display: table;
-    float: left;
+    display: flex;
+    align-items: center;
 }
 
 .logo h1 {
     color: #4d0000;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 70px;
+    font-size: 50px; /* Adjust font size for better fit on mobile */
     font-family: "Brush Script MT", 'Arial Narrow Bold', sans-serif;
-    padding-left: 15px;
     font-weight: 800;
+    margin: 0;
+    padding-right: 15px;
 }
 
 .logo h1 span {
@@ -53,8 +54,8 @@
 }
 
 .logo h1 a {
-    color: inherit; /* Use the color inherited from the parent element */
-    text-decoration: none; /* Remove underline */
+    color: inherit;
+    text-decoration: none;
 }
 
 .subhead {
@@ -66,6 +67,7 @@
 }
 
 .subhead h2 {
+    font-size: 20px;
     font-weight: 200;
     color: black;
     font-family: monospace, sans-serif;
@@ -77,12 +79,11 @@
 }
 
 .header_menu {
-    height: 60px;
+    display:inline;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
     color: #4d0000;
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    float: right;
     margin-top: 10px;
 }
 
@@ -90,18 +91,17 @@
 #account-button,
 #menu-button,
 #cart-button {
-    position: relative;
-    display: inline-block;
     border: none;
     background: none;
-    margin: 0 10px;
+    margin: 0;
+    padding-right: 15px;
 }
 
 #cart-button img,
 #account-button img,
 #menu-button img,
 #aboutus-button img {
-    height: 60px;
+    height: 50px; /* Adjust size for better fit on mobile */
     width: auto;
     cursor: pointer;
 }
@@ -116,17 +116,58 @@
 .header_menu a:last-child {
     padding-right: 20px;
 }
+/* Add position relative to cart-button */
+#cart-button {
+    position: relative;
+}
 
 #cart-count {
     display: none; /* Hide the count initially */
     position: absolute;
     width: 28px;
-    height: 24px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
+    height: 24px;
+    top: -42px;
+    right: 5px; /* Adjust as needed */
     background-color: #0092d6;
     color: white;
     border-radius: 10px;
     padding: 5px;
     font-size: 16px;
     text-align: center;
+}
+
+@media (max-width: 1035px) {
+    .subhead {
+        display: none;
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 770px) {
+    .logo h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .header_row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header_menu {
+        width: 100%;
+        align-items: center; /* Center menu items */
+        gap: 5px;
+        margin-top: 10px; /* Add spacing from logo */
+    }
+
+    .header_menu a {
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    #cart-count {
+        top: -36px;
+    }    
 }

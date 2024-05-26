@@ -2,15 +2,16 @@
 const express = require('express');
 const cors = require('cors');
 const logger = require('./middleware/logger');
-const routes = require('./routes');
+const routes = require('./routes'); // Import centralized routes
 
 module.exports = (app) => {
     // Middleware setup
     app.use(cors());
     app.use(express.json());
+    app.use(require('cookie-parser')()); // Use cookie-parser middleware
     app.use(logger);
 
-    // Use the routes defined in routes/index.js
+    // Use the centralized routes
     app.use('/', routes);
 
     // Basic error handling

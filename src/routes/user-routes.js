@@ -1,5 +1,6 @@
 // user-routes.js
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/user-model');
 
@@ -65,6 +66,40 @@ router.delete('/', async (req, res) => {
     } catch (error) {
         console.error('Error removing user address:', error.message);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.post('/decode', (req, res) => {
+    try {
+        const { token } = req.body;
+        if (!token) {
+            throw new Error('Token not provided');
+        }
+        
+        // Decode the token
+        const decodedToken = jwt.decode(token);
+        res.status(200).json(decodedToken);
+    } catch (error) {
+        console.error('Error decoding token:', error.message);
+        res.status(400).json({ error: error.message });
+    }
+});
+
+router.post('/auth', (req, res) => {
+    try {
+        const { token } = req.body;
+        if (!token) {
+            throw new Error('Token not provided');
+        }
+
+        // Verify the token
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+
+        // If verification is successful, send a success response
+        res.status(200).json({ message: 'Token is valid', user: decoded });
+    } catch (error) {
+        console.error('Error verifying token:', error.message);
+        res.status(400).json({ error: error.message });
     }
 });
 

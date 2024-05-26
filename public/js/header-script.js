@@ -1,3 +1,26 @@
+// public/header-script.js
+
+// Function to verify user's token
+async function decodeToken(token) {
+    try {
+        const response = await fetch('/userInfo/decode', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+    }
+}
+
 // Function to update cart count in the header
 function updateCartCount() {
     // Retrieve cartItems from local storage
@@ -18,24 +41,44 @@ function updateCartCount() {
 }
 
 function updateHeaderButtons() {
-    const role = sessionStorage.getItem('role');
-    const accountButton = document.getElementById('account-button');
-    const menuButton = document.getElementById('menu-button');
+    // Get the JWT from session storage
+    const token = sessionStorage.getItem('token');
 
-    if (role) {
-        // Replace the login button with the account button and update href
-        accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
-        accountButton.href = '/account';
-    }
+    if (token) {
+        // Decode the JWT using decodeToken function
+        decodeToken(token)
+            .then(decodedToken => {
+                if (decodedToken) {
+                    // Extract the role from the decoded payload
+                    const role = decodedToken.role;
 
-    if (role === 'admin') {
-        // Replace the account button with the admin button and update href
-        accountButton.innerHTML = '<img src="./images/admin.png" alt="Account">';
-        accountButton.href = '/account';
+                    // Get the account and menu buttons
+                    const accountButton = document.getElementById('account-button');
+                    const menuButton = document.getElementById('menu-button');
 
-        // Replace the menu button with the admin dashboard button and update href
-        menuButton.innerHTML = '<img src="./images/admin-dash.png" alt="Admin Dashboard">';
-        menuButton.href = '/admin-dash';
+                    // Update buttons based on the role
+                    if (role) {
+                        // Replace the login button with the account button and update href
+                        accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
+                        accountButton.href = '/account';
+                    }
+
+                    if (role === 'admin') {
+                        // Replace the account button with the admin button and update href
+                        accountButton.innerHTML = '<img src="./images/admin.png" alt="Account">';
+                        accountButton.href = '/account';
+
+                        // Replace the menu button with the admin dashboard button and update href
+                        menuButton.innerHTML = '<img src="./images/admin-dash.png" alt="Admin Dashboard">';
+                        menuButton.href = '/admin-dash';
+                    }
+                } else {
+                    console.error('Failed to decode JWT token');
+                }
+            })
+            .catch(error => {
+                console.error('Error decoding JWT token:', error);
+            });
     }
 }
 

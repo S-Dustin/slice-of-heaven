@@ -83,8 +83,44 @@ function handleMenuItemClick(item) {
     console.log(`Adding item to cart: ${item.name}`);
     // Add the item to the cart
     addToCart(item);
-    // Optionally, provide feedback to the user (e.g., display a confirmation message)
-    alert('Item added to cart: ' + item.name);
+    // Display the custom alert
+    showCustomAlert('Item added to cart: ' + item.name);
+}
+
+function showCustomAlert(message) {
+    // Create the alert element
+    var alertElement = document.createElement('div');
+    alertElement.id = 'customAlert';
+    alertElement.classList.add('alert');
+    
+    // Create the message element
+    var messageElement = document.createElement('span');
+    messageElement.id = 'alertMessage';
+    messageElement.innerText = message;
+
+    // Append the message to the alert
+    alertElement.appendChild(messageElement);
+
+    // Append the alert to the body
+    document.body.appendChild(alertElement);
+
+    // Display the custom alert
+    alertElement.style.top = '-100px'; // Start position above the screen
+    alertElement.style.display = 'block';
+    
+    // Slide down animation
+    alertElement.style.transition = 'top 0.5s ease-out';
+    alertElement.style.top = '0';
+
+    // Hide the custom alert after a delay
+    setTimeout(function() {
+        // Slide up animation
+        alertElement.style.top = '-100px';
+        // Remove the alert element from the DOM after hiding
+        setTimeout(function() {
+            document.body.removeChild(alertElement);
+        }, 500); // Adjust the duration of the slide up animation (in milliseconds)
+    }, 2000); // Adjust the delay (in milliseconds) before hiding the alert
 }
 
 document.addEventListener('click', function(event) {

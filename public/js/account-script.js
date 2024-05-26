@@ -1,14 +1,40 @@
 document.addEventListener('DOMContentLoaded', async function() {
+    // Function to verify the token
+    async function verifyToken() {
+        const token = sessionStorage.getItem('token');
+        if (!token) {
+            throw new Error('Token not found');
+        }
+
+        try {
+            const response = await fetch('/userInfo/auth', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token })
+            });
+
+            if (!response.ok) {
+                throw new Error('Token verification failed');
+            }
+
+            const data = await response.json();
+            console.log('Token is valid:', data);
+            return data;
+        } catch (error) {
+            console.error('Error verifying token:', error.message);
+            throw error;
+        }
+    }
+
     // Function to fetch user information
     async function fetchUserInfo() {
         try {
             const token = sessionStorage.getItem('token');
             const username = sessionStorage.getItem('username'); // Assume username is also stored
 
-            console.log('Token:', token);
-            console.log('Username:', username);
-
-            let url = `http://localhost:8000/user`;
+            let url = `/userInfo`;
 
             // Add username query parameter to the URL
             if (username) {
@@ -36,7 +62,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-
     // Function to display user information
     function displayUserInfo(user) {
         console.log('User information:', user);
@@ -56,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function updateAddress(address) {
         try {
             const token = sessionStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/user/address', {
+            const response = await fetch('/userInfo/address', {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -78,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function removeAddress() {
         try {
             const token = sessionStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/user/address', {
+            const response = await fetch('/userInfo/address', {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -97,11 +122,18 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Function to log out
     function logOut() {
         sessionStorage.removeItem('token');
-        sessionStorage.removeItem('role');
-        sessionStorage.removeItem('username');
-        window.location.href = 'login.html';
-        const token = '';
-        const username = '';
+        sessionStorage.removeItem('username'); // Clear the username as well
+        window.location.href = '/login';
+    }
+
+    // Verify token before proceeding
+    try {
+        await verifyToken();
+    } catch (error) {
+        alert('Error verifying. Please log in again to access this page.');
+        // Redirect to login page if token is invalid
+        window.location.href = '/login';
+        return;
     }
 
     // Fetch user information and display it on the page

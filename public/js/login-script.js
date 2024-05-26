@@ -1,4 +1,3 @@
-// login-script.js
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -20,13 +19,14 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
         const data = await response.json();
         console.log('Login successful:', data);
-        // Save the token and role to sessionStorage
+
+        // Save the token to sessionStorage
         sessionStorage.setItem('token', data.token);
-        sessionStorage.setItem('role', data.role);
         sessionStorage.setItem('username', data.username);
 
-        // Reload to accounts page if login is successful
+        // Redirect to the account page
         window.location.href = '/account';
+
     } catch (error) {
         console.error('Error:', error);
     }

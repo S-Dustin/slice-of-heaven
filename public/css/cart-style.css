@@ -12,6 +12,8 @@ body {
     background-image: url(../images/cart-backer.png);
     background-size: cover; /* Adjusts the background image size to cover the entire webpage */
     background-position: center; /* Centers the background image */
+    background-attachment: fixed;
+    height: 100vh;
     height: 100vh;
 }
 
@@ -139,6 +141,7 @@ del {
     font-size: 40px;
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
 #checkout-btn:hover {
