@@ -8,7 +8,6 @@ module.exports = (app) => {
     // Middleware setup
     app.use(cors());
     app.use(express.json());
-    app.use(require('cookie-parser')()); // Use cookie-parser middleware
     app.use(logger);
 
     // Use the centralized routes

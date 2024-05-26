@@ -3,7 +3,6 @@ const path = require('path');
 require('dotenv').config();
 const connectDB = require('./src/config/dbConfig');
 const serverSetup = require('./src/server');
-const { verifyToken, isAdmin } = require('./src/middleware/auth-middleware');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
