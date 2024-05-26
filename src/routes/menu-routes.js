@@ -4,7 +4,7 @@ const MenuItem = require("../models/item-model");
 const router = express.Router();
 
 // Fetch menu items
-router.get("/", async (req, res) => {
+router.get("/getItems", async (req, res) => {
     try {
         const { name } = req.query;
         if (name) {
@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 // Update a menu item by name
-router.put("/", async (req, res) => {
+router.put("/updateItem", async (req, res) => {
     try {
         const name = req.body.name;
         console.log(name);
@@ -48,7 +48,7 @@ router.put("/", async (req, res) => {
 });
 
 // Delete a menu item by name
-router.delete("/", async (req, res) => {
+router.delete("/removeItem", async (req, res) => {
     const name = req.query.name;
     try {
         // Find the menu item in the database by name and delete it
@@ -66,7 +66,7 @@ router.delete("/", async (req, res) => {
 });
 
 // Add a new menu item
-router.post('/', async (req, res) => {
+router.post('/newItem', async (req, res) => {
     const newItemData = req.body;
     try {
         const newItem = new MenuItem(newItemData); // Validates object

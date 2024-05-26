@@ -78,20 +78,44 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Function to update user's address
     async function updateAddress(address) {
         try {
+            // Fetch information from form
+            const street = document.getElementById('street').value;
+            const city = document.getElementById('city').value;
+            const stateAbr = document.getElementById('state').value;
+            const zipcode = document.getElementById('zipcode').value;
+            // Retrieve authentication token from sessionStorage
             const token = sessionStorage.getItem('token');
+            const username = sessionStorage.getItem('username');
+            // Check if authentication token is available
+            if (!token) {
+                throw new Error('Authentication token not found');
+            }
+
+            // Send PUT request to update user's address
             const response = await fetch('/userInfo/address', {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json' // Set content type to JSON
                 },
-                body: JSON.stringify({ address })
+                body: JSON.stringify({ username, street, city, stateAbr, zipcode }) // Include address data in the request body
             });
+
+            // Check if response is successful
             if (!response.ok) {
                 throw new Error('Failed to update address');
             }
+
+            // Parse response data as JSON
             const userData = await response.json();
+            // Update user interface with updated user data
             displayUserInfo(userData);
+
+            // Clear address fields
+            document.getElementById('street').value = '';
+            document.getElementById('city').value = '';
+            document.getElementById('state').value = '';
+            document.getElementById('zipcode').value = '';
+
         } catch (error) {
             console.error('Error updating address:', error.message);
         }
@@ -100,17 +124,31 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Function to remove user's address
     async function removeAddress() {
         try {
+            // Retrieve authentication token from sessionStorage
             const token = sessionStorage.getItem('token');
+            const username = sessionStorage.getItem('username');
+            // Check if authentication token is available
+            if (!token) {
+                throw new Error('Authentication token not found');
+            }
+
+            // Send DELETE request to remove user's address
             const response = await fetch('/userInfo/address', {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
+                    'Content-Type': 'application/json' // Set content type to JSON
+                },
+                body: JSON.stringify({ username }) // Include address data in the request body
             });
+
+            // Check if response is successful
             if (!response.ok) {
                 throw new Error('Failed to remove address');
             }
+
+            // Parse response data as JSON
             const userData = await response.json();
+            // Update user interface with updated user data
             displayUserInfo(userData);
         } catch (error) {
             console.error('Error removing address:', error.message);
@@ -144,7 +182,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const updateAddressForm = document.getElementById('updateAddressForm');
     updateAddressForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        const newAddress = document.getElementById('newAddress').value;
+        const newAddress = document.getElementById('updateAddressForm').value;
         updateAddress(newAddress);
     });
 

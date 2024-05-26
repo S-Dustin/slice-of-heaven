@@ -17,7 +17,9 @@ body {
 }
 
 .info {
-    width: 800px;
+    width: 95%;
+    max-width: 800px;
+    min-width: 250px;
     height: fit-content;
     border-width: 5px;
     border-style: solid;
@@ -41,13 +43,14 @@ body {
     background-color: #646464;
     text-align: center;
     padding-bottom: 5px;
+    margin-bottom: 50px;
 }
 
 h3 {
     font-size: 40px;
     text-align: center;
     color: #d6c4af;
-    height: 60px;
+    height: auto;
     padding-top: 5px;
     background-color: #4d0000;
     

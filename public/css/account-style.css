@@ -16,8 +16,8 @@ body {
 }
 
 .container {
-    max-width: 600px;
-    margin: 200px auto;
+    width: 350px;
+    margin: 50px auto;
     padding: 20px;
     background-color: #7c674f;
     border-radius: 20px;
@@ -79,7 +79,7 @@ button[type="submit"]:hover {
 }
 
 select {
-    width: 25%;
+    width: 40%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -139,3 +139,6 @@ button:hover {
     color: #721c24;
 }
 
+#logoutButton {
+    margin-left: 22%;
+}

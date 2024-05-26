@@ -2,7 +2,7 @@
 // Function to fetch menu items from the server
 async function fetchMenuItems() {
     try {
-        const response = await fetch(`/menuUpdate`);
+        const response = await fetch(`/menuUpdate/getItems`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

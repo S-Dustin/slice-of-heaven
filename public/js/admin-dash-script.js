@@ -97,11 +97,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         try {
             // Check if the item already exists by name
-            const response = await fetch(`/menuUpdate?name=${encodeURIComponent(formDataObject.name)}`);
+            const response = await fetch(`/menuUpdate/getItems?name=${encodeURIComponent(formDataObject.name)}`);
             const existingItem = await response.json();
             if (response.ok && existingItem) {
                 // If item exists, call the PUT route
-                const putResponse = await fetch('/menuUpdate', {
+                const putResponse = await fetch('/menuUpdate/updateItem', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
             } else {
                 // If item does not exist, call the POST route
-                const postResponse = await fetch('/menuUpdate', {
+                const postResponse = await fetch('/menuUpdate/newItem', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -144,7 +144,7 @@ document.getElementById('cancelButton').addEventListener('click', function() {
 // Function to fetch menu items and display them
 async function fetchMenu() {
     try {
-        const response = await fetch('/menuUpdate');
+        const response = await fetch('/menuUpdate/getItems');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -242,7 +242,7 @@ async function startEditMenuItem(itemName) {
 // Function to fetch a single menu item by name
 async function fetchMenuItemByName(itemName) {
     try {
-        const response = await fetch(`/menuUpdate?name=${encodeURIComponent(itemName)}`);
+        const response = await fetch(`/menuUpdate/getItems?name=${encodeURIComponent(itemName)}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

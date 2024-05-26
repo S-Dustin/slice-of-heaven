@@ -5,23 +5,24 @@ const { generateToken } = require('../utils/jwt');
 const bcrypt = require('bcryptjs'); // Ensure bcrypt is required if not already
 const router = express.Router();
 
-
+// Asks to authenticate logon info against what is stored in the DB
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
         console.log('Login attempt:', username); // Log the login attempt
-
+        // Attempts to find the user
         const user = await User.findOne({ username });
         if (!user) {
             console.log('User not found');
             return res.status(401).json({ message: 'User not found.' });
         }
+        // Compares hashed password with what is stored in the DB
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             console.log('Wrong password');
             return res.status(401).json({ message: 'Wrong password.' });
         }
-
+        // Generates JWT if authenticated
         const token = generateToken(user);
 
         // Send the token to the client
@@ -32,12 +33,15 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// Checks that the unique username doesn't already exist
 router.get('/checkUsername', async (req, res) => {
     const username = req.query.username;
+    // Attempts to find the exact username
     const user = await User.findOne({ username });
     if (user) {
+        // Returns that username exists
         res.json({ exists: true });
-    } else {
+    } else { // Returns that username does not exist
         res.json({ exists: false });
     }
 });

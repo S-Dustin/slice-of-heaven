@@ -141,7 +141,7 @@ del {
     z-index: 1000;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1120px) {
     .menu-container {
         grid-template-columns: 1fr; /* Set a single column layout for smaller screens */
         justify-content: center; /* Center menu items horizontally */
