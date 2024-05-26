@@ -19,15 +19,41 @@
         <h3>Welcome</h3>
         <div class="text-box">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="enter username">
+            <input type="text" id="username" placeholder="enter username" required>
         </div>
         <div class="text-box">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="enter password">
+            <input type="password" id="password" placeholder="enter password" required>
         </div>
         <input type="submit" value="Login" class="logon-button">
         <p>Don't have an account?</p>
-        <a href="#" class="sign-up">Sign up</a>
+        <a class="sign-up">Sign up</a>
+    </form>
+    <form id="signup-form" style="display: none;">
+        <h3>Sign Up</h3>
+        <div class="text-box">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username" placeholder="enter username" required>
+        </div>
+        <div class="text-box">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="enter password" required>
+        </div>
+        <div class="text-box">
+            <label for="signup-firstname">First Name</label>
+            <input type="text" id="signup-firstname" placeholder="enter first name" required>
+        </div>
+        <div class="text-box">
+            <label for="signup-lastname">Last Name</label>
+            <input type="text" id="signup-lastname" placeholder="enter last name" required>
+        </div>
+        <div class="text-box">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="enter email" required>
+        </div>
+        <input type="submit" value="Sign Up" class="logon-button">
+        <p>Already have an account?</p>
+        <a class="login-link">Login</a>
     </form>
     <script src="./js/login-script.js"></script>
     <script src="./js/header-loader.js"></script>

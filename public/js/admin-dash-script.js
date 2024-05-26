@@ -153,7 +153,6 @@ async function fetchMenu() {
         console.log('Successfully fetched menu items.');
     } catch (error) {
         console.error('Error fetching menu:', error);
-        alert('Failed to fetch menu items. Please try again.');
     }
 }
 

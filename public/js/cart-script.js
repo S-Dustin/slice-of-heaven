@@ -28,8 +28,9 @@ function renderCartItems() {
         emptyCartDiv.classList.add('empty-cart');
         emptyCartDiv.innerHTML = `
             <p>Your cart is empty!</p>
-            <p><a href="menu.html">View the menu?</a></p>
+            <p><a href="/menu">View the menu?</a></p>
         `;
+        updateTotalPrice();
         cartContainer.appendChild(emptyCartDiv);
     } else {
         cartItems.forEach(item => {
@@ -49,9 +50,8 @@ function renderCartItems() {
             `;
             cartContainer.appendChild(cartItem);
         });
-
-        // Update total price
-        updateTotalPrice();
+    // Update total price
+    updateTotalPrice();
     }
 }
 

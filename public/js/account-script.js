@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
 
             const data = await response.json();
-            console.log('Token is valid:', data);
             return data;
         } catch (error) {
             console.error('Error verifying token:', error.message);
@@ -64,8 +63,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Function to display user information
     function displayUserInfo(user) {
-        console.log('User information:', user);
-        console.log('User email:', user.email);
+
         const userFirstNameElement = document.getElementById('userFirstName');
         const userInfoElement = document.getElementById('userInfo');
         userFirstNameElement.textContent = user.firstName;
@@ -139,7 +137,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch user information and display it on the page
     const user = await fetchUserInfo();
     if (user) {
-        console.log('User information:', user);
         displayUserInfo(user);
     }
 
