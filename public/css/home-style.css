@@ -121,7 +121,7 @@ body {
 }
 
 /* Example styles for the navigation bar */
-.rapper {
+.page-container {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
   	grid-auto-rows: minmax(100px, auto);
