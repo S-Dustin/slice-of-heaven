@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const token = sessionStorage.getItem('token');
             const username = sessionStorage.getItem('username'); // Assume username is also stored
 
-            let url = `/userInfo`;
+            let url = `/userInfo/receive`;
 
             // Add username query parameter to the URL
             if (username) {

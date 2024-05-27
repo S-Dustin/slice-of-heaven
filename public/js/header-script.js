@@ -57,7 +57,7 @@ function updateHeaderButtons() {
                     const menuButton = document.getElementById('menu-button');
 
                     // Update buttons based on the role
-                    if (role) {
+                    if (role === 'user') {
                         // Replace the login button with the account button and update href
                         accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
                         accountButton.href = '/account';

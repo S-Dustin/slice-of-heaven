@@ -5,7 +5,7 @@ const router = express.Router();
 const User = require('../models/user-model');
 
 // Route to fetch user information by username
-router.get('/', async (req, res) => {
+router.get('/receive', async (req, res) => {
     try {
         const username = req.query.username;
         if (!username) {

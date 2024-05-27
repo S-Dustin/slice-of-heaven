@@ -14,7 +14,6 @@ body {
     background-position: center; /* Centers the background image */
     background-attachment: fixed;
     height: 100vh;
-    height: 100vh;
 }
 
 .cart-head {
@@ -22,6 +21,7 @@ body {
     width: 50%;
     min-width: 400px;
     justify-content: center;
+    text-align: center;
 }
 
 h3 {
@@ -142,8 +142,32 @@ del {
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 #checkout-btn:hover {
     background: #00ad00;
+}
+
+#checkout-btn:disabled {
+    background: #777;
+    color: #000000;
+    cursor: not-allowed;
+}
+
+@media (max-width: 800px) {
+    
+    .cart-head {
+        margin: auto;
+    }
+
+    .cart-item {
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    #cart-total {
+        margin: 50px auto;
+    }
 }

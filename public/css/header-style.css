@@ -144,6 +144,12 @@
 
 /* Media Queries for Mobile */
 @media (max-width: 770px) {
+
+    .spacer {
+        height: 150px;
+
+    }
+
     .logo h1 {
         text-align: center;
         font-size: 40px;

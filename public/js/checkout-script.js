@@ -40,6 +40,25 @@ orderSummaryContainer.innerHTML = `
     <p>Total: $${total.toFixed(2)}</p>
 `;
 
+// Add expiration date formatting
+const expirationDateInput = document.getElementById('expiration-date');
+expirationDateInput.addEventListener('input', () => {
+    let value = expirationDateInput.value.replace(/\D/g, ''); // Remove non-numeric characters
+    if (value.length > 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    }
+    expirationDateInput.value = value;
+});
+
+expirationDateInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace') {
+        let value = expirationDateInput.value;
+        if (value.endsWith('/')) {
+            expirationDateInput.value = value.slice(0, -1); // Remove the '/' if the user presses backspace
+        }
+    }
+});
+
 // Enable checkout button when all required fields are filled
 document.querySelectorAll('input').forEach(input => {
     input.addEventListener('input', () => {
@@ -65,4 +84,5 @@ document.querySelectorAll('input').forEach(input => {
 const checkoutBtn = document.getElementById('checkout-btn');
 checkoutBtn.addEventListener('click', () => {
     // Handle checkout process
+    alert('Checkout process initiated');
 });

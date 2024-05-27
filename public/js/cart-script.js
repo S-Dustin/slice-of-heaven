@@ -1,5 +1,15 @@
 // Retrieve existing cart items from local storage or initialize an empty array
 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+function updateCheckoutButton() {
+    const checkoutButton = document.getElementById('checkout-btn');
+    if (cartItems.length === 0) {
+        checkoutButton.disabled = true;
+    } else {
+        checkoutButton.disabled = false;
+    }
+}
+
 // Function to remove an item from the cart
 function removeFromCart(itemId) {
     // Find the index of the item to remove
@@ -14,6 +24,7 @@ function removeFromCart(itemId) {
         
         // Update the cart count in the header
         updateCartCount();
+        updateCheckoutButton();
     }
 }
 
@@ -30,7 +41,7 @@ function renderCartItems() {
             <p>Your cart is empty!</p>
             <p><a href="/menu">View the menu?</a></p>
         `;
-        updateTotalPrice();
+
         cartContainer.appendChild(emptyCartDiv);
     } else {
         cartItems.forEach(item => {
@@ -50,9 +61,10 @@ function renderCartItems() {
             `;
             cartContainer.appendChild(cartItem);
         });
-    // Update total price
-    updateTotalPrice();
+
     }
+    updateTotalPrice();
+    updateCheckoutButton();
 }
 
 // Function to update total price
@@ -120,7 +132,9 @@ document.addEventListener('click', function(event) {
         }
     }
     updateCartCount();
+    updateCheckoutButton();
 });
 
 // Initial rendering of cart items
 renderCartItems();
+updateCheckoutButton();
