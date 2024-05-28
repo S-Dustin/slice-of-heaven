@@ -49,28 +49,38 @@ function updateHeaderButtons() {
         decodeToken(token)
             .then(decodedToken => {
                 if (decodedToken) {
-                    // Extract the role from the decoded payload
-                    const role = decodedToken.role;
+                    const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds since epoch
 
-                    // Get the account and menu buttons
-                    const accountButton = document.getElementById('account-button');
-                    const menuButton = document.getElementById('menu-button');
+                    // Check if the token is expired
+                    if (decodedToken.exp < currentTime) {
+                        // Token is expired, remove it from session storage and notify the user
+                        sessionStorage.removeItem('token');
+                        sessionStorage.removeItem('username');
+                        alert('Your session has expired. Please log in again.');
+                    } else {
+                        // Extract the role from the decoded payload
+                        const role = decodedToken.role;
 
-                    // Update buttons based on the role
-                    if (role === 'user') {
-                        // Replace the login button with the account button and update href
-                        accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
-                        accountButton.href = '/account';
-                    }
+                        // Get the account and menu buttons
+                        const accountButton = document.getElementById('account-button');
+                        const menuButton = document.getElementById('menu-button');
 
-                    if (role === 'admin') {
-                        // Replace the account button with the admin button and update href
-                        accountButton.innerHTML = '<img src="./images/admin.png" alt="Account">';
-                        accountButton.href = '/account';
+                        // Update buttons based on the role
+                        if (role === 'user') {
+                            // Replace the login button with the account button and update href
+                            accountButton.innerHTML = '<img src="./images/account.png" alt="Account">';
+                            accountButton.href = '/account';
+                        }
 
-                        // Replace the menu button with the admin dashboard button and update href
-                        menuButton.innerHTML = '<img src="./images/admin-dash.png" alt="Admin Dashboard">';
-                        menuButton.href = '/admin-dash';
+                        if (role === 'admin') {
+                            // Replace the account button with the admin button and update href
+                            accountButton.innerHTML = '<img src="./images/admin.png" alt="Account">';
+                            accountButton.href = '/account';
+
+                            // Replace the menu button with the admin dashboard button and update href
+                            menuButton.innerHTML = '<img src="./images/admin-dash.png" alt="Admin Dashboard">';
+                            menuButton.href = '/admin-dash';
+                        }
                     }
                 } else {
                     console.error('Failed to decode JWT token');
