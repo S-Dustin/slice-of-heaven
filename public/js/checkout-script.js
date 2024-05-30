@@ -98,7 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutBtn = document.getElementById('checkout-btn');
     checkoutBtn.addEventListener('click', () => {
         // Handle checkout process
-        alert('Checkout process initiated');
+        alert('Your order has been placed!');
+        // Clears the cart in local storage
+        localStorage.removeItem('cartItems');
+        // Redirects user to the home page
+        window.location.href = '/home';
     });
 
     // Enable/disable delivery address details based on checkbox state
