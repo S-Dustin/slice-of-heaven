@@ -266,7 +266,7 @@ async function deleteMenuItem(itemName) {
         return;
     }
     try {
-        const response = await fetch(`/menuUpdate?name=${encodeURIComponent(itemName)}`, {
+        const response = await fetch(`/menuUpdate/removeItem?name=${encodeURIComponent(itemName)}`, {
             method: 'DELETE'
         });
         if (!response.ok) {
