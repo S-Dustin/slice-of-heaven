@@ -1,5 +1,7 @@
 # 🍕  Slice of Heaven – Pizza Ordering Website
 
+https://sliceofheaven-19d5438185fa.herokuapp.com/home
+
 Slice of Heaven is a full-stack web application developed in a 5-week team project to simulate an online pizza ordering service. The site allows users to browse menu items, create accounts, place orders, and manage their profile, while administrators can update menu items dynamically.
 
 # 🔑 Features
